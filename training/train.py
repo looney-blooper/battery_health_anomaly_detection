@@ -22,6 +22,8 @@ criterion = torch.nn.MSELoss()
 
 mlflow.set_experiment("Battery_LSTM_anomaly_Detection")
 
+print("!!! Starting Training !!!")
+
 with mlflow.start_run():
     NUM_EPOCHS = 50
 

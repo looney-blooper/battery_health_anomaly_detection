@@ -1,0 +1,15 @@
+artifact_uri: file:///home/looney-blooper/GhostDrive/battery_health/battery_health_anomaly_detection/mlruns/799678182207806971/1f3c59c598e24aa9b9017010230e9d18/artifacts
+end_time: 1768332548649
+entry_point_name: ''
+experiment_id: '799678182207806971'
+lifecycle_stage: active
+run_id: 1f3c59c598e24aa9b9017010230e9d18
+run_name: gregarious-rat-339
+run_uuid: 1f3c59c598e24aa9b9017010230e9d18
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1768332223456
+status: 3
+tags: []
+user_id: looney-blooper
