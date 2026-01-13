@@ -1,0 +1,27 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: python data_preprocessing/preprocessing_full.py
+    deps:
+    - path: data/raw/regular_alt_batteries
+      hash: md5
+      md5: 27ff3da1e1553f2218c2e9da8bd53958.dir
+      size: 1789764650
+      nfiles: 15
+    - path: data_preprocessing/preprocessing_full.py
+      hash: md5
+      md5: 97a1ab5e5994b6b021fec4a899a2d99a
+      size: 2123
+    outs:
+    - path: data/processed/drift_data.npy
+      hash: md5
+      md5: 332b5860ff304a339d7be69843290aff
+      size: 33712448
+    - path: data/processed/scaler.joblib
+      hash: md5
+      md5: b7bf24886f58a9d5e3eb7e836ddc9b27
+      size: 711
+    - path: data/processed/train_normal.npy
+      hash: md5
+      md5: 35cbcec931a8ae2487bcec845d4e7bf5
+      size: 14448128

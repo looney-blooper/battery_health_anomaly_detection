@@ -1,0 +1,10 @@
+stages:
+  preprocess:
+    cmd: python data_preprocessing/preprocessing_full.py
+    deps:
+      - data/raw/regular_alt_batteries
+      - data_preprocessing/preprocessing_full.py
+    outs:
+      - data/processed/train_normal.npy
+      - data/processed/drift_data.npy
+      - data/processed/scaler.joblib
