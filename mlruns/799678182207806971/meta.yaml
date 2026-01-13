@@ -1,0 +1,6 @@
+artifact_location: file:///home/looney-blooper/GhostDrive/battery_health/battery_health_anomaly_detection/mlruns/799678182207806971
+creation_time: 1768331992346
+experiment_id: '799678182207806971'
+last_update_time: 1768331992346
+lifecycle_stage: active
+name: Battery_LSTM_anomaly_Detection
