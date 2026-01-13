@@ -1,0 +1,6 @@
+outs:
+- md5: 27ff3da1e1553f2218c2e9da8bd53958.dir
+  size: 1789764650
+  nfiles: 15
+  hash: md5
+  path: regular_alt_batteries
