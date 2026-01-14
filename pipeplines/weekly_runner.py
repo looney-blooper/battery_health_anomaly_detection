@@ -22,7 +22,6 @@ from data_preprocessing.extract_window import extract_lstm_windows
 # CONFIG (LOCKED)
 # =========================
 BATTERY_CSV = "data/raw/regular_alt_batteries/battery10.csv"
-MODEL_PATH = "models/lstm_model_v1.pt"
 
 SHADOW_MODE = True
 
@@ -34,12 +33,25 @@ RED_SIGMA = 3.0
 LOG_PATH = "logs/weekly_shadow_log.csv"
 
 
-# =========================
-# LOAD MODEL
-# =========================
+from pathlib import Path
+
+BASE_MODEL_PATH = Path("models/lstm_model_v1.pt")
+PERSONALIZED_MODEL_PATH = Path("models/lstm_personalized_user.pt")
+
+# Choose model
+if PERSONALIZED_MODEL_PATH.exists():
+    model_path = PERSONALIZED_MODEL_PATH
+    model_type = "personalized"
+else:
+    model_path = BASE_MODEL_PATH
+    model_type = "base"
+
 model = LSTMAutoEncoder(n_features=4)
-model.load_state_dict(torch.load(MODEL_PATH))
+model.load_state_dict(torch.load(model_path))
 model.eval()
+
+print(f"Weekly runner using {model_type} model: {model_path}")
+
 
 
 # =========================
