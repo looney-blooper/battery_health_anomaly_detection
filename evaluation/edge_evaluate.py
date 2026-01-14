@@ -21,7 +21,7 @@ import pandas as pd
 import torch
 from pathlib import Path
 
-from training.model import LSTMAutoencoder
+from training.model import LSTMAutoEncoder
 
 
 # =========================
@@ -42,7 +42,7 @@ RED_SIGMA = 3.0
 # =========================
 X = torch.tensor(np.load(WINDOWS_PATH), dtype=torch.float32)
 
-model = LSTMAutoencoder(n_features=X.shape[2])
+model = LSTMAutoEncoder(n_features=X.shape[2])
 model.load_state_dict(torch.load(MODEL_PATH))
 model.eval()
 
