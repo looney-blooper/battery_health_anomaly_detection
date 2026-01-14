@@ -21,6 +21,7 @@ from data_preprocessing.extract_window import extract_lstm_windows
 # =========================
 # CONFIG (LOCKED)
 # =========================
+
 BATTERY_CSV = "data/raw/regular_alt_batteries/battery10.csv"
 
 SHADOW_MODE = True
@@ -34,24 +35,37 @@ LOG_PATH = "logs/weekly_shadow_log.csv"
 
 
 from pathlib import Path
+import torch
 
-BASE_MODEL_PATH = Path("models/lstm_model_v1.pt")
-PERSONALIZED_MODEL_PATH = Path("models/lstm_personalized_user.pt")
+from models.factory import build_model
 
-# Choose model
+BASE_MODEL_PATH = Path("edge_models/base_model.pt")
+PERSONALIZED_MODEL_PATH = Path("edge_models/personalized_user.pt")
+
+MODEL_TYPE = "LSTM2LayerAutoencoder"   # must match promoted model architecture
+WINDOW_SIZE = 60
+N_FEATURES = 4
+
+# Choose weights
 if PERSONALIZED_MODEL_PATH.exists():
-    model_path = PERSONALIZED_MODEL_PATH
-    model_type = "personalized"
+    weights_path = PERSONALIZED_MODEL_PATH
+    model_source = "personalized"
 else:
-    model_path = BASE_MODEL_PATH
-    model_type = "base"
+    weights_path = BASE_MODEL_PATH
+    model_source = "mlflow_production"
 
-model = LSTMAutoEncoder(n_features=4)
-model.load_state_dict(torch.load(model_path))
+# Build architecture
+model = build_model(
+    model_type=MODEL_TYPE,
+    window_size=WINDOW_SIZE,
+    n_features=N_FEATURES
+)
+
+# Load weights
+model.load_state_dict(torch.load(weights_path, map_location="cpu"))
 model.eval()
 
-print(f"Weekly runner using {model_type} model: {model_path}")
-
+print(f"Weekly runner using {model_source} model from {weights_path}")
 
 
 # =========================

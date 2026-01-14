@@ -5,25 +5,31 @@ Initial On-Device Personalization (Month 1)
 - Decoder is frozen
 - Uses only Month-1 data
 - Low LR, few epochs
+- Derives from MLflow Production model
 """
 
 import torch
-import numpy as np
+import json
 from pathlib import Path
 from datetime import datetime
 
-from training.model import LSTMAutoEncoder
+from models.factory import build_model
 from data_preprocessing.load_and_clean import load_and_clean
 from data_preprocessing.extract_window import extract_lstm_windows
+
 
 # =========================
 # CONFIG (LOCKED)
 # =========================
 BATTERY_CSV = "data/raw/regular_alt_batteries/battery10.csv"
-BASE_MODEL_PATH = "models/lstm_model_v1.pt"
 
-PERSONALIZED_MODEL_PATH = "models/lstm_personalized_user.pt"
-METADATA_PATH = "models/personalization_metadata.json"
+BASE_MODEL_PATH = Path("edge_models/base_model.pt")
+PERSONALIZED_MODEL_PATH = Path("edge_models/personalized_user.pt")
+METADATA_PATH = Path("edge_models/personalization_metadata.json")
+
+MODEL_TYPE = "lstm_2layer"   # must match MLflow Production model
+WINDOW_SIZE = 60
+N_FEATURES = 4
 
 EPOCHS = 3
 LEARNING_RATE = 1e-4
@@ -35,15 +41,21 @@ BATCH_SIZE = 32
 # =========================
 df = load_and_clean(BATTERY_CSV)
 windows = extract_lstm_windows(df)
-
 X = torch.tensor(windows, dtype=torch.float32)
 
 
 # =========================
-# LOAD MODEL
+# LOAD BASE MODEL (FROM MLFLOW SYNC)
 # =========================
-model = LSTMAutoEncoder(n_features=4)
-model.load_state_dict(torch.load(BASE_MODEL_PATH))
+assert BASE_MODEL_PATH.exists(), "Base model not synced from MLflow"
+
+model = build_model(
+    model_type=MODEL_TYPE,
+    window_size=WINDOW_SIZE,
+    n_features=N_FEATURES
+)
+
+model.load_state_dict(torch.load(BASE_MODEL_PATH, map_location="cpu"))
 model.train()
 
 
@@ -89,7 +101,7 @@ for epoch in range(EPOCHS):
 # =========================
 # SAVE PERSONALIZED MODEL
 # =========================
-Path("models").mkdir(exist_ok=True)
+PERSONALIZED_MODEL_PATH.parent.mkdir(exist_ok=True)
 torch.save(model.state_dict(), PERSONALIZED_MODEL_PATH)
 
 
@@ -97,15 +109,14 @@ torch.save(model.state_dict(), PERSONALIZED_MODEL_PATH)
 # SAVE METADATA (NO RAW DATA)
 # =========================
 metadata = {
-    "base_model": BASE_MODEL_PATH,
-    "personalized_model": PERSONALIZED_MODEL_PATH,
+    "base_model_source": "mlflow_production",
+    "model_type": MODEL_TYPE,
     "personalization_date": datetime.utcnow().isoformat(),
     "epochs": EPOCHS,
     "learning_rate": LEARNING_RATE,
     "data_source": BATTERY_CSV
 }
 
-import json
 with open(METADATA_PATH, "w") as f:
     json.dump(metadata, f, indent=2)
 
