@@ -14,7 +14,7 @@ import torch
 from pathlib import Path
 from datetime import datetime
 
-from training.model import LSTMAutoEncoder
+from models.factory import get_model
 from data_preprocessing.load_and_clean import load_and_clean
 from data_preprocessing.extract_window import extract_lstm_windows
 
