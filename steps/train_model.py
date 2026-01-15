@@ -32,8 +32,8 @@ def train_model(
         Learning rate for the optimizer
 
     outputs:
-    - model: torch.nn.Module
-        Trained AutoEncoder model
+    - model: str
+        Path to the trained AutoEncoder model
     """
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -62,4 +62,5 @@ def train_model(
             print(f"Epoch {epoch+1}/{epochs} | Loss: {loss.item():.6f}")
             mlflow.log_metric("training_loss", loss.item(), step=epoch+1)
         
-    return model
+    torch.save(model.state_dict(), f"trained_models/{model_type}_model.pt")
+    return f"trained_models/{model_type}_model.pt"

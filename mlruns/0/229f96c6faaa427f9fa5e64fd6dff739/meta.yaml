@@ -1,0 +1,15 @@
+artifact_uri: file:///home/looney-blooper/GhostDrive/battery_health/battery_health_anomaly_detection/mlruns/0/229f96c6faaa427f9fa5e64fd6dff739/artifacts
+end_time: 1768487856639
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 229f96c6faaa427f9fa5e64fd6dff739
+run_name: agreeable-sow-190
+run_uuid: 229f96c6faaa427f9fa5e64fd6dff739
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1768487853877
+status: 3
+tags: []
+user_id: looney-blooper

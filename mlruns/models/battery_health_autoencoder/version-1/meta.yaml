@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1768505021033
+current_stage: None
+description: null
+last_updated_timestamp: 1768505021033
+name: battery_health_autoencoder
+run_id: 65fd9a1998b1449589d04a639cd67aaf
+run_link: null
+source: file:///home/looney-blooper/GhostDrive/battery_health/battery_health_anomaly_detection/mlruns/0/65fd9a1998b1449589d04a639cd67aaf/artifacts/model
+status: READY
+status_message: null
+storage_location: file:///home/looney-blooper/GhostDrive/battery_health/battery_health_anomaly_detection/mlruns/0/65fd9a1998b1449589d04a639cd67aaf/artifacts/model
+user_id: null
+version: 1
