@@ -1,8 +1,9 @@
 artifact_uri: file:///home/looney-blooper/GhostDrive/battery_health/battery_health_anomaly_detection/mlruns/0/2519f5a35d304600bd078996d452aa4f/artifacts
+deleted_time: 1768506952740
 end_time: 1768504719613
 entry_point_name: ''
 experiment_id: '0'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: 2519f5a35d304600bd078996d452aa4f
 run_name: bittersweet-croc-893
 run_uuid: 2519f5a35d304600bd078996d452aa4f

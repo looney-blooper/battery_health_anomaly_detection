@@ -1,8 +1,9 @@
 artifact_uri: file:///home/looney-blooper/GhostDrive/battery_health/battery_health_anomaly_detection/mlruns/0/65fd9a1998b1449589d04a639cd67aaf/artifacts
+deleted_time: 1768506952738
 end_time: 1768505022642
 entry_point_name: ''
 experiment_id: '0'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: 65fd9a1998b1449589d04a639cd67aaf
 run_name: big-shrike-385
 run_uuid: 65fd9a1998b1449589d04a639cd67aaf

@@ -9,3 +9,7 @@ __pycache__/
 .DS_Store
 .env
 .env.*
+/logs/
+/mlruns/
+/trained_models/
+.vscode/

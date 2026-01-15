@@ -1,8 +1,9 @@
 artifact_uri: file:///home/looney-blooper/GhostDrive/battery_health/battery_health_anomaly_detection/mlruns/799678182207806971/6bc647e966fd4e639f35faee69617cc9/artifacts
+deleted_time: 1768507012166
 end_time: 1768331997904
 entry_point_name: ''
 experiment_id: '799678182207806971'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: 6bc647e966fd4e639f35faee69617cc9
 run_name: illustrious-kit-860
 run_uuid: 6bc647e966fd4e639f35faee69617cc9

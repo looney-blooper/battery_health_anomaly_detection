@@ -40,11 +40,11 @@ def offline_evaluate(
     # Load model (candidate)
     # -------------------------
     model = get_model(
-        model_type=model_type,
+        model_type,
         window_size=window_size,
         n_features=n_features,
     )
-    model.load_state_dict(torch.load(model_weights_path, map_location="cpu"))
+    model.load_state_dict(torch.load(model_weights_path, map_location="cpu", weights_only=True))
     model.eval()
 
     # -------------------------

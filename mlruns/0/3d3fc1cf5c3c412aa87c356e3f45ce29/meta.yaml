@@ -1,8 +1,9 @@
 artifact_uri: file:///home/looney-blooper/GhostDrive/battery_health/battery_health_anomaly_detection/mlruns/0/3d3fc1cf5c3c412aa87c356e3f45ce29/artifacts
+deleted_time: 1768506952742
 end_time: 1768504686150
 entry_point_name: ''
 experiment_id: '0'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: 3d3fc1cf5c3c412aa87c356e3f45ce29
 run_name: redolent-hound-353
 run_uuid: 3d3fc1cf5c3c412aa87c356e3f45ce29
