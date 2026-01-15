@@ -21,17 +21,17 @@ from data_preprocessing.extract_window import extract_lstm_windows
 # =========================
 # CONFIG (LOCKED)
 # =========================
-BATTERY_CSV = "data/raw/regular_alt_batteries/battery10.csv"
+BATTERY_CSV = "data/raw/regular_alt_batteries/battery10.csv"  ##consider this as a user battery of the last month
 
 BASE_MODEL_PATH = Path("edge_models/base_model.pt")
 PERSONALIZED_MODEL_PATH = Path("edge_models/personalized_user.pt")
 METADATA_PATH = Path("edge_models/personalization_metadata.json")
 
-MODEL_TYPE = "lstm_2layer"   # must match MLflow Production model
+MODEL_TYPE = "LSTM2LayerAutoencoder"   # must match MLflow Production model
 WINDOW_SIZE = 60
 N_FEATURES = 4
 
-EPOCHS = 3
+EPOCHS = 7
 LEARNING_RATE = 1e-4
 BATCH_SIZE = 32
 

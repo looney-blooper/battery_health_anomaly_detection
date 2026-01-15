@@ -22,13 +22,11 @@ def evaluate_single_battery(
     red_sigma: float = 3.0,
 ):
     """
-    Parameters
-    ----------
+    inputs:
     window_errors : np.ndarray
         Reconstruction error per window (ordered by time)
 
-    Returns
-    -------
+    outputs:
     logs : list[dict]
         Weekly evaluation timeline
     """

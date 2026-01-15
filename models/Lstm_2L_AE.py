@@ -4,6 +4,9 @@ from models.base import BaseAutoencoder
 
 
 class LSTM2LayerAutoencoder(BaseAutoencoder):
+    """
+    LSTM-based Autoencoder with 2 layers.
+    """
     def __init__(self, n_features: int, hidden_dim: int = 64):
         super().__init__()
         self.n_features = n_features

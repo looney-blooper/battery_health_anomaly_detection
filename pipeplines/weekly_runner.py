@@ -34,10 +34,6 @@ RED_SIGMA = 3.0
 LOG_PATH = "logs/weekly_shadow_log.csv"
 
 
-from pathlib import Path
-import torch
-
-from models.factory import build_model
 
 BASE_MODEL_PATH = Path("edge_models/base_model.pt")
 PERSONALIZED_MODEL_PATH = Path("edge_models/personalized_user.pt")
@@ -55,7 +51,7 @@ else:
     model_source = "mlflow_production"
 
 # Build architecture
-model = build_model(
+model = get_model(
     model_type=MODEL_TYPE,
     window_size=WINDOW_SIZE,
     n_features=N_FEATURES

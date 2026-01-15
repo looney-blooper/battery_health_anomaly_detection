@@ -5,7 +5,7 @@ from base import BaseAutoEncoder
 
 class LSTMDeepAutoEncoder(BaseAutoEncoder):
     """
-    Docstring for LSTMDeepAutoEncoder
+    LSTM-based Deep AutoEncoder for time-series data.
     """
 
     def __init__(self, n_features: int, hidden_dims: int = 128, num_layers : int = 3):

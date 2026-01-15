@@ -5,7 +5,7 @@ from base import BaseAutoEncoder
 
 class DenseAutoEncoder(BaseAutoEncoder):
     """
-    Docstring for DenseAutoEncoder
+    A Dense (Fully Connected) AutoEncoder for time-series data.
     """
 
     def __init__(self, window_size: int , n_features: int, latent_dim: int = 64):
