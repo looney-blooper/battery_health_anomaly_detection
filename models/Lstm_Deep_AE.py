@@ -1,7 +1,7 @@
 import torch 
 import torch.nn as nn
 
-from base import BaseAutoEncoder
+from models.base import BaseAutoEncoder
 
 class LSTMDeepAutoEncoder(BaseAutoEncoder):
     """

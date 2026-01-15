@@ -1,9 +1,9 @@
 import torch
 import torch.nn as nn
-from models.base import BaseAutoencoder
+from models.base import BaseAutoEncoder
 
 
-class LSTM2LayerAutoencoder(BaseAutoencoder):
+class LSTM2LayerAutoencoder(BaseAutoEncoder):
     """
     LSTM-based Autoencoder with 2 layers.
     """

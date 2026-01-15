@@ -16,6 +16,7 @@ def training_pipeline(
     lr: float = 1e-3,
 ):
     windows = preprocess_data(csv_path=csv_path)
+    print(f"Training model type: {model_type}")
     model = train_model(
         windows=windows,
         model_type=model_type,

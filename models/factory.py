@@ -1,6 +1,6 @@
-from Dense_AE import DenseAutoEncoder
-from Lstm_2L_AE import LSTM2LayerAutoencoder
-from Lstm_Deep_AE import LSTMDeepAutoEncoder
+from models.Dense_AE import DenseAutoEncoder
+from models.Lstm_2L_AE import LSTM2LayerAutoencoder
+from models.Lstm_Deep_AE import LSTMDeepAutoEncoder
 
 def get_model(model_name: str, **kwargs):
 
