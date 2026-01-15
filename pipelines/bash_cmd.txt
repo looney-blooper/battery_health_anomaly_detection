@@ -1,4 +1,0 @@
-1. Running the training pipeline :
-
-python -m pipelines.training_pipeline --csv_path data/raw/regular_alt_batteries/battery10.csv --model_type DenseAutoEncoder --window_size 60 --n_features 4
-

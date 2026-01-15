@@ -1,3 +1,23 @@
+"""
+To run this pipelise, use this command, 
+format :
+python -m pipelines.evaluation_pipeline \
+--battery_csv <csv_file_path> \
+--model_type <model_type> \
+--window_size <window_size> \
+--n_features <n_features> \
+--model_weights_path <path_where_model_weights_stored>
+
+for example:
+python -m pipelines.evaluation_pipeline \
+--battery_csv data/raw/regular_alt_batteries/battery10.csv \
+--model_type LSTMDeepAutoEncoder \
+--window_size 60 \
+--n_features 4 \
+--model_weights_path trained_models/LSTMDeepAutoEncoder_model.pt
+"""
+
+
 import argparse
 
 from zenml import pipeline
@@ -43,4 +63,3 @@ if __name__ == "__main__":
     )
 
     # To run the pipeline, use the command line:
-    

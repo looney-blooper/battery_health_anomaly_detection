@@ -1,3 +1,25 @@
+"""
+To run this pipelise, use this command, 
+format :
+python -m pipelines.evaluation_pipeline \
+--battery_csv <csv_file_path> \
+--model_type <model_type> \
+--window_size <window_size> \
+--n_features <n_features> \
+
+optional:
+--lr <learning_rate> \
+--epochs <num_epochs> \
+
+for example:
+python -m pipelines.evaluation_pipeline \
+--battery_csv data/raw/regular_alt_batteries/battery10.csv \
+--model_type LSTMDeepAutoEncoder \
+--window_size 60 \
+--n_features 4 \
+"""
+
+
 import argparse
 from steps. ingest_data import ingest_data
 from steps. preprocess import preprocess_data
@@ -31,7 +53,7 @@ def training_pipeline(
 
     register_model(
         model_path,
-        model_name="battery_health_autoencoder"
+        model_name=f"battery_health_{model_type}"
     )
 
     
